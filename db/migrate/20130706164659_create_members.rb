@@ -3,7 +3,6 @@ class CreateMembers < ActiveRecord::Migration
     create_table :members do |t|
       t.string :fname
       t.string :lname
-      t.string :email
       t.string :phone
       t.string :accesscard
       t.string :fsqtoken

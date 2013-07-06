@@ -23,6 +23,13 @@ end
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'devise'
+gem 'cancan'
+gem 'stripe'
+gem 'omniauth-foursquare'
+gem 'foursquare2'
+
+# 4Sq location: 4b5140ecf964a520d54827e3
+# my oAuth: DDH13XYGJ15JJBU34FPDXSJBQ2X0IVMDRBGSZQD1APQ02GCB
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

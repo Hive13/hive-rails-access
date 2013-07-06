@@ -1,10 +1,13 @@
 Hive13RailsAccess::Application.routes.draw do
+  devise_for :members
+
   resources :members
 
   get "home/index"
-
+  get '/fsqauthstart', to: 'home#foursquarecreate'
   get "home/doortest"
   root :to => 'home#index'
+  get '/auth/:provider/callback', to: 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

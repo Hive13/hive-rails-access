@@ -5,4 +5,5 @@ class HomeController < ApplicationController
   def doortest
       render :text => "OK"
   end
+  
 end
