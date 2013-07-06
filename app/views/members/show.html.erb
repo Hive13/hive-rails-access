@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fname:</b>
+  <%= @member.fname %>
+</p>
+
+<p>
+  <b>Lname:</b>
+  <%= @member.lname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @member.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @member.phone %>
+</p>
+
+<p>
+  <b>Accesscard:</b>
+  <%= @member.accesscard %>
+</p>
+
+<p>
+  <b>Fsqtoken:</b>
+  <%= @member.fsqtoken %>
+</p>
+
+<p>
+  <b>Fbtoken:</b>
+  <%= @member.fbtoken %>
+</p>
+
+<p>
+  <b>Twitoken:</b>
+  <%= @member.twitoken %>
+</p>
+
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
