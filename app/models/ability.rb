@@ -38,6 +38,6 @@ class Ability
         end
       end
     end
-    
   end
-end
+  
+    
