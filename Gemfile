@@ -9,9 +9,13 @@ group :development, :test do
   gem 'annotate', '2.5.0'
 
 end
-#group :production do
-#  gem 'pg'
-#end
+group :production do
+  gem 'pg'
+  gem 'vagrant'
+  gem 'amqp'
+  gem 'unicorn'
+  gem 'therubyracer'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
