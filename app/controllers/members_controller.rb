@@ -52,6 +52,19 @@ class MembersController < ApplicationController
       end
     end
   end
+  
+  def checkin
+    @member = Member.find(params[:id])
+    
+    fsqclient = Foursquare2::Client.new(:oauth_token => @member.fsqtoken )
+    fsqclient.search_venues(:ll => '39.13545607,-84.5385181903', :query => 'hive13')
+    print @member.fsqtoken
+    if fsqclient.add_checkin(:venueId => "4b5140ecf964a520d54827e3", :broadcast => 'public', :ll => '39.13545607,-84.5385181903', :shout => 'Checked in via RFID Badge') 
+      redirect_to members_url
+    end
+
+
+  end
 
   # PUT /members/1
   # PUT /members/1.json
