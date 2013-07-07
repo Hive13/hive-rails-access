@@ -1,4 +1,10 @@
 Hive13RailsAccess::Application.routes.draw do
+  get "home/about"
+
+  get "home/help"
+
+  get "home/contact"
+
   devise_for :members
 
   resources :members
@@ -8,6 +14,9 @@ Hive13RailsAccess::Application.routes.draw do
   get "home/doortest"
   root :to => 'home#index'
   get '/auth/:provider/callback', to: 'home#fsqsave'
+  match '/contact', :to => 'home#contact'
+  match '/about',   :to => 'home#about'
+  match '/help',    :to => 'home#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,11 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Hive13 RFID", '#', id: "logo" %>
+      <%= link_to "Hive13 RFID", root_url, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    '#' %></li>
-          <li><%= link_to "Help",    '#' %></li>
+          <li><%= link_to "Home", root_url %></li>
             <% if member_signed_in? %>
                 Logged in as <strong><%= current_member.email %></strong>.
                 <li><%= link_to 'Edit Profile', edit_member_registration_path %></li>

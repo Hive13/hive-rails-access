@@ -6,6 +6,8 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
   gem 'sqlite3'
+  gem 'annotate', '2.5.0'
+
 end
 #group :production do
 #  gem 'pg'
@@ -30,6 +32,7 @@ gem 'cancan'
 gem 'omniauth-foursquare'
 gem 'foursquare2'
 gem 'bootstrap-sass'
+gem 'amqp'
 
 # 4Sq location: 4b5140ecf964a520d54827e3
 # my oAuth: DDH13XYGJ15JJBU34FPDXSJBQ2X0IVMDRBGSZQD1APQ02GCB
