@@ -22,13 +22,12 @@
   <div>
   	<%= current_member.fsqtoken %><br>
   	<% if current_member.fsqtoken.blank? %>
-  	  <%= current_member.fsqtoken %>
-  	  You have connected your Foursquare so that you can automatically check into the hive.
-  	<% else %>
-  	  You have not connected with Foursquare to auto-checkin to the hive.
+      You have not connected with Foursquare to auto-checkin to the hive.
   	  <a href="/auth/foursquare">
       <img src="http://playfoursquare.s3.amazonaws.com/press/logo/connect-black.png">
       </a>
+      <% else %>
+      You have connected your Foursquare so that you can automatically check into the hive.
   	<% end%>
 
   <div><%= f.submit "Update" %></div>
