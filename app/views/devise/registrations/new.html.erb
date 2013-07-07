@@ -1,25 +1,56 @@
 <h2>Sign up</h2>
-
+<class="form-horizontal">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-  <div>
-  	First Name: <%= f.text_field :fname %>
+  <div class="control-group">
+  <label class="control-label" for="fname">First Name:</label>
+    <div class="controls">
+  	  <%= f.text_field :fname, :autofocus => true %>
+    </div>
   </div>
 
-  <div>
-  	Last Name: <%= f.text_field :lname %>
+  <div class="control-group">
+    <label class="control-label" for="lname">Last Name:</label>
+    <div class="controls">
+  	  <%= f.text_field :lname %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">E-Mail Address:</label>
+    <div class="controls">
+      <%= f.email_field :email %>
+      <span class="help-block">Holy shit.  You should really read my privacy policy and other stupid legal things.</span>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label" for="phone">Cell Phone:</label>
+    <div class="controls">
+      <%= f.text_field :phone %>
+    </div>
   </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="control-group">
+    <label class="control-label" for="password">Password:</label>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="control-group">
+    <label class="control-label" for="password">Password (again):</label>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
 
+  <label class="checkbox">
+      <input type="checkbox"> Yeah.  I agree to this bullshit
+  </label>
+  </div>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
