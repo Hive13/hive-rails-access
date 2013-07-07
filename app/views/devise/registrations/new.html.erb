@@ -1,8 +1,7 @@
-<h2>Sign up</h2>
-<class="form-horizontal">
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name, :class => "form-horizontal")) do |f| %>
   <%= devise_error_messages! %>
-  
+
+  <legend>Sign up to help socialize your RFID Badge!</legend>
   <div class="control-group">
   <label class="control-label" for="fname">First Name:</label>
     <div class="controls">
@@ -48,10 +47,12 @@
   </div>
 
   <label class="checkbox">
-      <input type="checkbox"> Yeah.  I agree to this bullshit
+      <input type="checkbox"> Yeah.  I agree to the terms and conditions that have yet to be defined...
   </label>
+
+  <div class="control-group">
+      <%= f.submit "Sign up" %>
   </div>
-  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
