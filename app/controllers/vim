@@ -1,0 +1,10 @@
+# coding: utf-8
+ 
+class AmqpController < ApplicationController
+  def publish
+    AMQP::Utilities::EventLoopHelper.run do
+      AMQP.channel.default_exchange.publish("Hello World!!!!!", routing_key: "queue.name")
+    end
+    head :created
+  end
+end

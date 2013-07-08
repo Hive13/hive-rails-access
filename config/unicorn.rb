@@ -25,7 +25,7 @@ working_directory "/usr/local/src/hive-rails-access" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/tmp/unicorn.todo.sock", :backlog => 64
+listen "/usr/local/src/hive-rails-access/tmp/sockets/unicorn.todo.sock", :backlog => 64
 listen 8080, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
@@ -99,4 +99,19 @@ after_fork do |server, worker|
   # and Redis.  TokyoCabinet file handles are safe to reuse
   # between any number of forked children (assuming your kernel
   # correctly implements pread()/pwrite() system calls)
+
+  require "amqp"
+ 
+  # the following is *required* for Rails + "preload_app true",
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
+ 
+  t = Thread.new { AMQP.start }
+  sleep(1.0)
+ 
+  EventMachine.next_tick do
+    AMQP.channel ||= AMQP::Channel.new()
+    AMQP.channel.queue("amqpgem.rails.monitor", :durable => true)
+    AMQP.channel.direct("").publish("Rails App Unicorn Server started at #{Time.now.strftime('%H:%M:%S %m/%b/%Y')}", :routing_key => "amqpgem.rails.monitor")
+  end
 end

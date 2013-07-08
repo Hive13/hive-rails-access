@@ -12,7 +12,6 @@ end
 group :production do
   gem 'pg'
   gem 'vagrant'
-  gem 'amqp'
   gem 'unicorn'
   gem 'therubyracer'
 end

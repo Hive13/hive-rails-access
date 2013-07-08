@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def doortest
+      monitor_message("[PORTAL][WARN] Door Controller was reset.  New IP address is: #{request.env['HTTP_X_FORWARDED_FOR']}")
       render :text => "OK"
   end
   
