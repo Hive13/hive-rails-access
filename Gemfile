@@ -35,8 +35,9 @@ gem 'cancan'
 gem 'omniauth-foursquare'
 gem 'foursquare2'
 gem 'bootstrap-sass'
-gem 'amqp'
 gem 'therubyracer'
+gem 'amqp'
+gem 'typhoeus'
 
 # 4Sq location: 4b5140ecf964a520d54827e3
 # my oAuth: DDH13XYGJ15JJBU34FPDXSJBQ2X0IVMDRBGSZQD1APQ02GCB

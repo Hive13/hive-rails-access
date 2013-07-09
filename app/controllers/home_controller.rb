@@ -11,26 +11,14 @@ class HomeController < ApplicationController
     auth = request.env["omniauth.auth"]
     token = params["code"]
 
-    # Apparently, I'm not done here.  I can't just take this token and do things with it.  Apparently, Omniauth only
-    # does a half-assed job of grabbing a token.  Shame on you, omniauth...
-    # RNK2EUTWFUMTWXR1GOFZUFHLMZYJXVCNGIT1ZHF2H5MQ4VZN
-    # Turns into this Piece of shit...
-    # https://foursquare.com/oauth2/access_token?client_id=O1OPS1LVEPX0AI1HSQORSPQGHZSB4GXZ4CAM2YTCJ4MMSR55&client_secret=DKC50ZFPZLLB5BFVHDODCATPNHFIPZTJ3RTNP4L3RTPDRQLH&grant_type=authorization_code&redirect_uri=http%3A%2F%2Fdevops.ewscloud.com%3A8080%2Ffqredirect%2F&code=RNK2EUTWFUMTWXR1GOFZUFHLMZYJXVCNGIT1ZHF2H5MQ4VZN
-    #
-    # https://developer.foursquare.com/overview/auth
-    
-    # params
-    params = {}
-    params["client_id"] = @client_id
-    params["client_secret"] = @client_secret
-    params["grant_type"] = "authorization_code"
-    params["redirect_uri"] = redirect_uri
-    params["code"] = code
-            
-    # response
-    # http://developer.foursquare.com/docs/oauth.html
-    response = JSON.parse(Typhoeus::Request.get("https://foursquare.com/oauth2/access_token?#{params.to_query}").body)
-
+    param = {}
+    param["client_id"] = 'O1OPS1LVEPX0AI1HSQORSPQGHZSB4GXZ4CAM2YTCJ4MMSR55'
+    param["client_secret"] = 'DKC50ZFPZLLB5BFVHDODCATPNHFIPZTJ3RTNP4L3RTPDRQLH'
+    param["grant_type"] = "authorization_code"
+    param["redirect_uri"] = 'http://localhost:3000/'
+    param["code"] = token
+    fsqurl = "https://foursquare.com/oauth2/access_token?#{param.to_query}"
+    response = JSON.parse(Typhoeus::Request.get(fsqurl).body)
     current_member.fsqtoken = response["access_token"]
     current_member.save
     redirect_to root_url, :notice => "Added Foursquare Token!"
