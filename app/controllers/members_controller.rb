@@ -63,6 +63,24 @@ class MembersController < ApplicationController
     end
   end
 
+  def cardcheck
+      rails.logger "Card #{params[:card]} was presented to the door."
+      @tmember = Member.where("accesscard = '#{params[:card]}'").first
+      if @tmember.nil?
+          monitor_message("[DOOR][WARNING] Card #{params[:card]} was presented at the door, but, I have no information about that card.")
+          render :text => "0"
+      else
+        unless @tmember.fsqtoken.empty?
+            fsqclient = Foursquare2::Client.new(:oauth_token => @tmember.fsqtoken )
+            fsqclient.search_venues(:ll => '39.13545607,-84.5385181903', :query => 'hive13')
+            fsqclient.add_checkin(:venueId => "4b5140ecf964a520d54827e3", :broadcast => 'public', :ll => '39.13545607,-84.5385181903', :shout => 'Checked in via RFID Badge')
+        end
+        monitor_message("[DOOR][ENTRY] #{@tmember.fname} #{@tmember.lname}'s card was presented at the door, and access was granted.")
+        render :text => "1"
+      end
+
+  end
+
   # PUT /members/1
   # PUT /members/1.json
   def update
