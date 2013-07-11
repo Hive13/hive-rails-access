@@ -13,9 +13,6 @@ Hive13RailsAccess::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -34,7 +31,18 @@ Hive13RailsAccess::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'door.at.hive13.org' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  ActionMailer::Base.smtp_settings = {
+        :address        => 'smtp.sendgrid.net',
+        :port           => '587',
+        :authentication => :plain,
+        :user_name      => 'me@ianwilson.org',
+        :password       => '4ian1234',
+        :domain         => 'door.at.hive13.org',
+        :enable_starttls_auto => true
+  }
   
 end

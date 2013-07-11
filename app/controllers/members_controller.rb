@@ -64,7 +64,6 @@ class MembersController < ApplicationController
   end
 
   def cardcheck
-      rails.logger "Card #{params[:card]} was presented to the door."
       @tmember = Member.where("accesscard = '#{params[:card]}'").first
       if @tmember.nil?
           monitor_message("[DOOR][WARNING] Card #{params[:card]} was presented at the door, but, I have no information about that card.")

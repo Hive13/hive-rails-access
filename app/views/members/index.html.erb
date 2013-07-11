@@ -2,14 +2,14 @@
 
 <table>
   <tr>
-    <th>Fname</th>
-    <th>Lname</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Email</th>
     <th>Phone</th>
     <th>Accesscard</th>
-    <th>Fsqtoken</th>
-    <th>Fbtoken</th>
-    <th>Twitoken</th>
+    <th>Foursquare token</th>
+    <th>Facebook token</th>
+    <th>Twitter token</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,7 +25,6 @@
     <td><%= member.fsqtoken %></td>
     <td><%= member.fbtoken %></td>
     <td><%= member.twitoken %></td>
-    <td><%= link_to '4SQ CI', controller: "members", action: "checkin", id: member.id %></td>
     <td><%= link_to 'Show', member %></td>
     <td><%= link_to 'Edit', edit_member_path(member) %></td>
     <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
