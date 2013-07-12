@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706170613) do
+ActiveRecord::Schema.define(:version => 20130712000632) do
 
   create_table "members", :force => true do |t|
     t.string   "fname"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20130706170613) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
+    t.string   "handle"
+    t.string   "last_access"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

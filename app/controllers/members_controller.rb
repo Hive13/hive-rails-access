@@ -67,7 +67,7 @@ class MembersController < ApplicationController
       @tmember = Member.where("accesscard = '#{params[:card]}'").first
       if @tmember.nil?
           monitor_message("[DOOR][WARNING] Card #{params[:card]} was presented at the door, but, I have no information about that card.")
-          render :text => "0"
+          render :text => "0", :status => 201
       else
         unless @tmember.fsqtoken.empty?
             fsqclient = Foursquare2::Client.new(:oauth_token => @tmember.fsqtoken )
