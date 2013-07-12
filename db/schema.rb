@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712000632) do
+ActiveRecord::Schema.define(:version => 20130712060937) do
 
   create_table "members", :force => true do |t|
     t.string   "fname"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(:version => 20130712000632) do
     t.string   "authentication_token"
     t.string   "handle"
     t.string   "last_access"
+    t.string   "yubico"
+    t.boolean  "is_admin"
+    t.boolean  "is_lockedout"
+    t.boolean  "is_private"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

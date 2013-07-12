@@ -20,6 +20,9 @@ Hive13RailsAccess::Application.routes.draw do
   match '/doortest',:to => 'home#doortest' 
   get '/doorcheck/:card/:readcount/:opencount/go', to: 'members#cardcheck'
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

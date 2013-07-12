@@ -7,6 +7,6 @@ class Member < ActiveRecord::Base
          :token_authenticatable, :confirmable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :is_lockedout, :is_admin, :is_private, :yubico
   attr_accessible :accesscard, :email, :fbtoken, :fname, :fsqtoken, :lname, :phone, :twitoken, :handle, :last_access
 end
