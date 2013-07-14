@@ -17,8 +17,13 @@ Hive13RailsAccess::Application.routes.draw do
   match '/contact', :to => 'home#contact'
   match '/about',   :to => 'home#about'
   match '/help',    :to => 'home#help'
-  match '/doortest',:to => 'home#doortest' 
+  match '/doortest',:to => 'home#doortest'
+  match '/vendtest',:to => 'home#vendtest'
+  match '/testtest', :to => 'home#testtest'
+
+  get '/testcheck/:card/go', to: 'members#testcheck'
   get '/doorcheck/:card/:readcount/:opencount/go', to: 'members#cardcheck'
+  get '/vendcheck/:card/go', to: 'members#vendcheck'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

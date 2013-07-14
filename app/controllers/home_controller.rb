@@ -6,6 +6,15 @@ class HomeController < ApplicationController
       monitor_message("[PORTAL][WARN] Door Controller was reset.  New IP address is: #{request.env['HTTP_X_FORWARDED_FOR']}")
       render :text => "OK"
   end
+
+  def vendtest
+      monitor_message("[PORTAL][WARN] Vending Machine Controller was reset.  New IP address is: #{request.env['HTTP_X_FORWARDED_FOR']}")
+      render :text => "OK"
+  end
+
+  def testtest
+      render :text => "OK"
+  end
   
   def fsqsave
     auth = request.env["omniauth.auth"]

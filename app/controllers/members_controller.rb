@@ -74,11 +74,47 @@ class MembersController < ApplicationController
             fsqclient.search_venues(:ll => '39.13545607,-84.5385181903', :query => 'hive13')
             fsqclient.add_checkin(:venueId => "4b5140ecf964a520d54827e3", :broadcast => 'public', :ll => '39.13545607,-84.5385181903', :shout => 'Checked in via RFID Badge')
         end
+        @tmember.last_access = Time.now
         monitor_message("[DOOR][ENTRY] #{@tmember.fname} #{@tmember.lname}'s card was presented at the door, and access was granted.")
         render :text => "1"
+        @tmember.save
       end
-
   end
+
+  def vendcheck
+      @tmember = Member.where("accesscard = '#{params[:card]}'").first
+      if @tmember.nil?
+          monitor_message("[VEND][WARNING] Card #{params[:card]} was presented at the vending machine, but I have no information about that card.")
+          render :text => "0", :status => 201
+      else
+          if @tmember.vend_enabled == true
+              # Oh, I should tweet!
+              @tmember.vend_total = @tmember.vend_total + 1
+              @tmember.save
+              render :text => "Credit: #{@tmember.vend_credits}, Total: #{@tmember.vend_total}, Vend:#{@tmember.vend_enabled}", :status => 200
+          else
+              if @tmember.vend_credits > 0
+                  @tmember.vend_total = @tmember.vend_total + 1
+                  @tmember.vend_credits = @tmember.vend_credits - 1
+                  @tmember.save
+                  render :text => "Credit: #{@tmember.vend_credits}, Total: #{@tmember.vend_total}, Vend:#{@tmember.vend_enabled}", :status => 200 
+              else
+                  monitor_message("[VEND][WARNING] #{@tmember.fname} #{@tmember.lname}'s card was presented at the vending machine, but, he is not vend_enabled.")
+                  render :text => "Credit: #{@tmember.vend_credits}, Total: #{@tmember.vend_total}, Vend:#{@tmember.vend_enabled}", :status => 201 
+              end
+          end
+      end
+  end
+
+  def testcheck
+      @tmember = Member.where("accesscard = '#{params[:card]}'").first
+      if @tmember.nil?
+          render :text => "0", :status => 201
+      else
+        render :text => "1", :status => 200
+      end
+  end
+
 
   # PUT /members/1
   # PUT /members/1.json
