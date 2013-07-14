@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130714030750) do
 
   create_table "members", :force => true do |t|

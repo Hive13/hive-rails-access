@@ -27,7 +27,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'foreman'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'devise'
@@ -38,7 +38,10 @@ gem 'bootstrap-sass'
 gem 'therubyracer'
 gem 'amqp'
 gem 'typhoeus'
-
+gem 'rake'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 # 4Sq location: 4b5140ecf964a520d54827e3
 # my oAuth: DDH13XYGJ15JJBU34FPDXSJBQ2X0IVMDRBGSZQD1APQ02GCB
 
