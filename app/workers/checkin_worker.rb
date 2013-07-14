@@ -11,7 +11,8 @@ class CheckinWorker
       fsqclient.add_checkin(:venueId => "4b5140ecf964a520d54827e3", :broadcast => 'public', :ll => '39.13545607,-84.5385181903', :shout => 'Checked in via RFID Badge')
     end
 
-    #Grab a copy of their
+    #Grab a copy of their picture as they walk into the hive
+    member.picture_from_url 'http://172.16.3.243/fullsize.jpg'
 
   end
 

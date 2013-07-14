@@ -66,18 +66,17 @@ class MembersController < ApplicationController
   def cardcheck
       @tmember = Member.where("accesscard = '#{params[:card]}'").first
       if @tmember.nil?
-        render :text => "0"
+        render :text => "0", :status => 201
       else
         if @tmember.is_lockedout = false
-          render :text => "LockedOut"
+          render :text => "LockedOut", :status => 201
         else
           CheckinWorker.perform_async(@tmember.id)
-          render :text => "1"
+          render :text => "1", :staus => 200
+          @tmember.last_access = Time.now
+          monitor_message("[DOOR][ENTRY] #{@tmember.fname} #{@tmember.lname}'s card was presented at the door, and access was granted.")
+          @tmember.save
         end
-        @tmember.last_access = Time.now
-        monitor_message("[DOOR][ENTRY] #{@tmember.fname} #{@tmember.lname}'s card was presented at the door, and access was granted.")
-        render :text => "1"
-        @tmember.save
       end
   end
 
