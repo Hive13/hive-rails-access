@@ -1,2 +1,0 @@
-{"ts":1370994067054,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"class HomeController < ApplicationController\n  def index\n  end\n\n  def doortest\n  end\nend\n"]],"start1":0,"start2":0,"length1":0,"length2":89}]],"length":89}
-{"contributors":[],"silentsave":false,"ts":1370994137467,"patch":[[{"diffs":[[0,"oortest\n"],[1,"      render :text => \"OK\"\n"],[0,"  end\nen"]],"start1":71,"start2":71,"length1":16,"length2":43}]],"length":116,"saved":false}
