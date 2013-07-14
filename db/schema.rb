@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130714172402) do
+=======
+ActiveRecord::Schema.define(:version => 20130714053253) do
+>>>>>>> 65914233b1901859d64c1f77c37301c9fb94f8ba
 
   create_table "members", :force => true do |t|
     t.string   "fname"
@@ -21,14 +25,14 @@ ActiveRecord::Schema.define(:version => 20130714172402) do
     t.string   "fsqtoken"
     t.string   "fbtoken"
     t.string   "twitoken"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.string   "email",                        :default => "", :null => false
+    t.string   "encrypted_password",           :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -37,23 +41,23 @@ ActiveRecord::Schema.define(:version => 20130714172402) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        :default => 0
+    t.integer  "failed_attempts",              :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
     t.string   "handle"
     t.string   "last_access"
-    t.boolean  "vend_enabled"
-    t.integer  "vend_credits"
-    t.integer  "vend_total"
     t.string   "yubico"
     t.boolean  "is_admin"
     t.boolean  "is_lockedout"
     t.boolean  "is_private"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.boolean  "vend_enabled"
+    t.integer  "vend_credits"
+    t.integer  "vend_total"
+    t.string   "checkin_picture_file_name"
+    t.string   "checkin_picture_content_type"
+    t.integer  "checkin_picture_file_size"
+    t.datetime "checkin_picture_updated_at"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

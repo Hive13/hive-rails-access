@@ -1,7 +1,9 @@
 hive-rails-access
 =================
 
-Ruby on Rails application for managing access and logging to the hive
+Ruby on Rails application for managing access and logging to the hive.
+
+The documentation here is a bit out of date (Ian, Sunday July 14, 2013), but, my goal is to have the requirements, development, and other secionts completed by Tuesday night.
 
 Requirements
 ------------
