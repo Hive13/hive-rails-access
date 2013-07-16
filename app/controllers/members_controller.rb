@@ -72,11 +72,11 @@ class MembersController < ApplicationController
           render :text => "LockedOut", :status => 201
         else
           CheckinWorker.perform_async(@tmember.id)
-          render :text => "1", :status => 200
+          render :text => "1", :staus => 200
+          @tmember.last_access = Time.now
+          monitor_message("[DOOR][ENTRY] #{@tmember.fname} #{@tmember.lname}'s card was presented at the door, and access was granted.")
+          @tmember.save
         end
-        @tmember.last_access = Time.now
-        monitor_message("[DOOR][ENTRY] #{@tmember.fname} #{@tmember.lname}'s card was presented at the door, and access was granted.")
-        @tmember.save
       end
   end
 

@@ -10,7 +10,10 @@ class CheckinWorker
       fsqclient.search_venues(:ll => '39.13545607,-84.5385181903', :query => 'hive13')
       fsqclient.add_checkin(:venueId => "4b5140ecf964a520d54827e3", :broadcast => 'public', :ll => '39.13545607,-84.5385181903', :shout => 'Checked in via RFID Badge')
     end
-    member.picture_from_url("http://shell.hive13.org/webcam1/fullsize.jpg")
+
+    #Grab a copy of their picture as they walk into the hive
+    member.picture_from_url 'http://172.16.3.243/fullsize.jpg'
+
   end
 
 end
