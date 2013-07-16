@@ -1,4 +1,6 @@
 Hive13RailsAccess::Application.routes.draw do
+  resources :guests
+
   get "home/about"
 
   get "home/help"

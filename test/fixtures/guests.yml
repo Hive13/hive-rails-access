@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fname: MyString
+  lname: MyString
+  email: MyString
+  phone: MyString
+  interests: MyText
+  date_in: 2013-07-14 18:13:17
+  date_out: 2013-07-14 18:13:17
+  badgeprinted: false
+
+two:
+  fname: MyString
+  lname: MyString
+  email: MyString
+  phone: MyString
+  interests: MyText
+  date_in: 2013-07-14 18:13:17
+  date_out: 2013-07-14 18:13:17
+  badgeprinted: false
