@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Fname</th>
     <th>Lname</th>
     <th>Email</th>
@@ -16,6 +17,7 @@
   </tr>
 
 <% @guests.each do |guest| %>
+ <% next if cannot? :show, guest %>
   <tr>
     <td><%= guest.fname %></td>
     <td><%= guest.lname %></td>

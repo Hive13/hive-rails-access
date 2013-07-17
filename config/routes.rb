@@ -22,6 +22,8 @@ Hive13RailsAccess::Application.routes.draw do
   match '/doortest',:to => 'home#doortest'
   match '/vendtest',:to => 'home#vendtest'
   match '/testtest', :to => 'home#testtest'
+  match '/statusboard', :to => 'home#statusboard'
+
 
   get '/testcheck/:card/go', to: 'members#testcheck'
   get '/doorcheck/:card/:readcount/:opencount/go', to: 'members#cardcheck'

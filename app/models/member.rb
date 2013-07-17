@@ -28,4 +28,6 @@ class Member < ActiveRecord::Base
     return false
   end
 
+
+
 end

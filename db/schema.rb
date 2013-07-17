@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20130717020052) do
     t.datetime "locked_at"
     t.string   "authentication_token"
     t.string   "handle"
-    t.string   "last_access"
+    t.datetime "last_access"
     t.string   "yubico"
     t.boolean  "is_admin"
     t.boolean  "is_lockedout"

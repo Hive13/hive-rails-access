@@ -32,5 +32,10 @@ class HomeController < ApplicationController
     current_member.save
     redirect_to root_url, :notice => "Added Foursquare Token!"
   end
+
+  def statusboard
+    @members = Member.all
+    @guests = Guest.all
+  end
   
 end
