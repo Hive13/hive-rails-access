@@ -7,10 +7,12 @@
     <th>Handle</th>
     <th>Email</th>
     <th>Phone</th>
-    <th>Accesscard</th>
-    <th>Foursquare token</th>
-    <th>Facebook token</th>
-    <th>Twitter token</th>
+    <th>Card SN</th>
+    <th>4sq</th>
+    <th>FB</th>
+    <th>TW</th>
+    <th>V Credits</th>
+    <th>V Total</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,9 +27,23 @@
     <td><%= member.email %></td>
     <td><%= member.phone %></td>
     <td><%= member.accesscard %></td>
-    <td><%= member.fsqtoken  %></td>
-    <td><%= member.fbtoken %></td>
-    <td><%= member.twitoken %></td>
+    <% if member.fsqtoken.empty? %>
+      <td>No</td>
+    <% else %>
+      <td>Yes</td>
+    <% end %>
+    <% if member.fbtoken.empty? %>
+      <td>No</td>
+    <% else %>
+      <td>Yes</td>
+    <% end %>
+    <% if member.twitoken.empty? %>
+      <td>No</td>
+    <% else %>
+      <td>Yes</td>
+    <% end %>
+    <td><%= member.vend_credits %></td>
+    <td><%= member.vend_total %></td>
     <td><%= link_to 'Show', member if can? :show, member %></td>
     <td><%= link_to 'Edit', edit_member_path(member) if can? :edit, member%></td>
     <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, member %></td>

@@ -27,4 +27,5 @@ class Member < ActiveRecord::Base
     end
     return false
   end
+
 end
