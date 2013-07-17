@@ -17,6 +17,7 @@
   </tr>
 
 <% @members.each do |member| %>
+  <% next if cannot? :show, member %>
   <tr>
     <td><%= member.fname %></td>
     <td><%= member.lname %></td>
@@ -27,13 +28,13 @@
     <td><%= member.fsqtoken  %></td>
     <td><%= member.fbtoken %></td>
     <td><%= member.twitoken %></td>
-    <td><%= link_to 'Show', member %></td>
-    <td><%= link_to 'Edit', edit_member_path(member) %></td>
-    <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', member if can? :show, member %></td>
+    <td><%= link_to 'Edit', edit_member_path(member) if can? :edit, member%></td>
+    <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, member %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Member', new_member_path %>
+<%= link_to 'New Member', new_member_path if can? :manage, :all %>

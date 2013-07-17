@@ -14,6 +14,7 @@ class MembersController < ApplicationController
   # GET /members/1.json
   def show
     @member = Member.find(params[:id])
+    raise CanCan::AccessDenied if cannot? :show, @member
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,6 +36,7 @@ class MembersController < ApplicationController
   # GET /members/1/edit
   def edit
     @member = Member.find(params[:id])
+    raise CanCan::AccessDenied if cannot? :edit, @member
   end
 
   # POST /members
@@ -119,6 +121,7 @@ class MembersController < ApplicationController
   # PUT /members/1.json
   def update
     @member = Member.find(params[:id])
+    raise CanCan::AccessDenied if cannot? :edit, @member
 
     respond_to do |format|
       if @member.update_attributes(params[:member])
@@ -135,6 +138,7 @@ class MembersController < ApplicationController
   # DELETE /members/1.json
   def destroy
     @member = Member.find(params[:id])
+    raise CanCan::AccessDenied if cannot? :delete, @member
     @member.destroy
 
     respond_to do |format|
