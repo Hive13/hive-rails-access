@@ -1,0 +1,83 @@
+<%= form_for(@guest) do |f| %>
+  <% if @guest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+      <ul>
+      <% @guest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="row">
+      <div class="field">
+          <div class="span2">
+             First Name
+          </div>
+          <div class="span3">
+             <%= f.text_field :fname %>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+            Last Name
+        </div>
+        <div class="span3">
+        <%= f.text_field :lname %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          What should we greet you as?
+        </div>
+        <div class="span3">
+          <%= f.text_field :handle %>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="span2">
+        Email Address
+      </div>
+      <div class="span3">
+        <%= f.text_field :email %>
+      </div>
+      <div class="span4">
+        You should have a gander at our Privacy Policy.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <div class="span2">
+        Telephone Number
+      </div>
+      <div class="span3">
+        <%= f.text_field :phone %>
+      </div>
+      <div class="span6">
+        We use this for emergencies only and won't otherwise bug you.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+        <div class="span2">
+          What are you interested about?
+        </div>
+        <div class="span3">
+          <%= f.text_field :interests %>
+        </div>
+      </div>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

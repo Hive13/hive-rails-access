@@ -13,6 +13,20 @@
 
 ActiveRecord::Schema.define(:version => 20130717020052) do
 
+  create_table "guests", :force => true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "interests"
+    t.datetime "date_in"
+    t.datetime "date_out"
+    t.boolean  "badgeprinted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "handle"
+  end
+
   create_table "members", :force => true do |t|
     t.string   "fname"
     t.string   "lname"

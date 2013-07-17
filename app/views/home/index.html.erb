@@ -1,2 +1,19 @@
-<h1>Welcome to Hive13's RFID System!</h1>
-<p>TODO:  Add copy here.</p>
+<h1>Welcome to Hive13!</h1>
+
+<div class="row">
+  <div class="span6">
+    <h2>Existing Members</h2>
+    Are you a member looking to register for an RFID card?  If so, you'll want to follow the <%= link_to "Sign Up", new_member_registration_path %>
+    link, and then talk to someone who is an admin for the RFID system to validate your membership.
+  </div>
+  <div class="span6">
+    <h2>Guests</h2>
+    <p>Are you a guest looking to join the Hive, or just visiting us for a meeting?</p>
+    <ul>
+      <li><%= link_to "Visiting hive13 for a meeting or a class", new_guest_path %></li>
+      <li>I'm looking to join hive13</li>
+      <li>I'm making a donation of goods to the Hive</li>
+    </ul>
+
+  </div>
+</div>

@@ -43,6 +43,9 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'paperclip'
+gem 'stripe'
+
+
 # 4Sq location: 4b5140ecf964a520d54827e3
 # my oAuth: DDH13XYGJ15JJBU34FPDXSJBQ2X0IVMDRBGSZQD1APQ02GCB
 
