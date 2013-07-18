@@ -14,6 +14,7 @@ Hive13RailsAccess::Application.routes.draw do
 
   get "home/index"
   get "home/doortest"
+  get "home/enrollcard"
   root :to => 'home#index'
   get '/auth/:provider/callback', to: 'home#fsqsave'
   match '/contact', :to => 'home#contact'
@@ -24,7 +25,7 @@ Hive13RailsAccess::Application.routes.draw do
   match '/testtest', :to => 'home#testtest'
   match '/statusboard', :to => 'home#statusboard'
 
-
+  get '/enrollcard/:card/go', to: 'members#enrollcard'
   get '/testcheck/:card/go', to: 'members#testcheck'
   get '/doorcheck/:card/:readcount/:opencount/go', to: 'members#cardcheck'
   get '/vendcheck/:card/go', to: 'members#vendcheck'

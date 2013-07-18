@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome to hive13, <%= @email %>!</p>
 
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+<p>If you have any issues with access, please email rt@hive13.org, or speak to one of the folks who is managing the RFID system.</p>

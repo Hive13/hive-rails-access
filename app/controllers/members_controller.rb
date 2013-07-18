@@ -55,6 +55,10 @@ class MembersController < ApplicationController
     end
   end
 
+  def enrollcard
+
+  end
+
   def cardcheck
       @tmember = Member.where("accesscard = '#{params[:card]}'").first
       if @tmember.nil?
