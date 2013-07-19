@@ -1,7 +1,8 @@
 <h1>Listing members</h1>
 
-<table>
+<table class="table-striped">
   <tr>
+    <th></th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Handle</th>
@@ -21,6 +22,11 @@
 <% @members.each do |member| %>
   <% next if cannot? :show, member %>
   <tr>
+    <% if member.vend_enabled == true %>
+      <td><span class="label label-info">Vend</span></td>
+    <% else %>
+      <td></td>
+    <% end %>
     <td><%= member.fname %></td>
     <td><%= member.lname %></td>
     <td><%= member.handle %></td>

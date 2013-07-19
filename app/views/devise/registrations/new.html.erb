@@ -1,56 +1,98 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name, :class => "form-horizontal")) do |f| %>
   <%= devise_error_messages! %>
 
-  <legend>Sign up to help socialize your RFID Badge!</legend>
-  <div class="control-group">
-  <label class="control-label" for="fname">First Name:</label>
-    <div class="controls">
-  	  <%= f.text_field :fname, :autofocus => true %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label class="control-label" for="lname">Last Name:</label>
-    <div class="controls">
-  	  <%= f.text_field :lname %>
-    </div>
-  </div>
-  <div class="control-group">
-      <label class="control-label" for="handle">Handle:</label>
-      <div class="controls">
-          <%= f.text_field :handle %>
+  <legend>Use your RFID Card to get access to the Hive and tools!</legend>
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="fname">
+            First Name:
+          </label>
+        </div>
+        <div class="span3">
+  	        <%= f.text_field :fname, :autofocus => true %>
+        </div>
       </div>
-  </div>
+    </div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">E-Mail Address:</label>
-    <div class="controls">
-      <%= f.email_field :email %>
-      <span class="help-block">Holy shit.  You should really read my privacy policy and other stupid legal things.</span>
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="lname">
+            Last Name:
+          </label>
+        </div>
+        <div class="span3">
+  	        <%= f.text_field :lname %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="handle">Handle:</label>
+        </div>
+        <div class="span3">
+          <%= f.text_field :handle %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="inputEmail">E-Mail Address:</label>
+        </div>
+        <div class="span3">
+          <%= f.email_field :email %>
+        </div>
+        <div class="span4">
+          <span class="help-block">You'll need to confirm your email address within the first 48 hours from either a hive wired computer or by using the hive13int network.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="phone">Cell Phone:</label>
+        </div>
+        <div class="span3">
+          <%= f.text_field :phone %>
+        </div>
+        <div class="span4">
+          <span class="help-block">If you lose your phone, you will be able to send a text or call a number in order to gain access.</span>
+        </div>
     </div>
   </div>
-  
-  <div class="control-group">
-    <label class="control-label" for="phone">Cell Phone:</label>
-    <div class="controls">
-      <%= f.text_field :phone %>
-    </div>
-  </div>
 
 
-  <div class="control-group">
-    <label class="control-label" for="password">Password:</label>
-    <div class="controls">
-      <%= f.password_field :password %>
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="password">Password:</label>
+        </div>
+        <div class="span3">
+          <%= f.password_field :password %>
+        </div>
+        <div class="span4">
+          <span class="help-block">Even though we can't, assume that we can read your passwords and will use them for nefarious things.
+          Don't use a common password that you may use, or, the password to your online banking sites.  This isn't secure.  You've been warned.</span>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="control-group">
-    <label class="control-label" for="password">Password (again):</label>
-    <div class="controls">
-      <%= f.password_field :password_confirmation %>
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="password">Password (again):</label>
+        </div>
+        <div class="span3">
+          <%= f.password_field :password_confirmation %>
+        </div>
+      </div>
     </div>
-  </div>
 
   <label class="checkbox">
       <input type="checkbox"> Yeah.  I agree to the terms and conditions that have yet to be defined...

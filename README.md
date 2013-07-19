@@ -8,9 +8,9 @@ The documentation here is a bit out of date (Ian, Sunday July 14, 2013), but, my
 Requirements
 ------------
 
-1. RabbitMQ Server (For IRC Notifications)
+1. Redis server (redis.io) for backgrounding of sidekiq jobs 
 2. Unicorn stack.
-3. NGINX for HTTP calls
+3. NGINX for HTTP calls.
 
 Development
 -----------
@@ -28,4 +28,5 @@ nginx, unicorn, rabbitmq, source code, and schemas in a ready-to-run bundle).
 3. bundle install (for local development)
 4. visit either localhost:3000 or vagrantbox:80 
 5. winning
+
 

@@ -1,20 +1,47 @@
-<h1>Welcome to Hive13!</h1>
+<% if member_signed_in? %>
+    <div class="row">
+      <div class="span8">
+        <h2>Member Functions</h2>
+        <ul>
+          <li><%= link_to "I'm looking to associate an RFID card with my account.", '/home/enrollcard' %></li>
+          <li>I'm looking to change my privacy status.</li>
+          	<% if current_member.fsqtoken.blank? %>
+              <li><%= link_to "I'm looking to add a foursquare token to my account.", '/auth/foursquare' %></li>
+              <% else %>
+              <li>Foursquare token added!</li>
+          	<% end%>
+          <li>I'm looking at add a facebook token to my account.</li>
+          <li>I'm looking to add a twitter token to my account.</li>
+          <li>I'm looking to donate some money for beer supplies.</li>
+          <li>I'm looking to buy some soda.</li>
+        </ul>
+      </div>
+    </div>
 
-<div class="row">
-  <div class="span6">
-    <h2>Existing Members</h2>
-    Are you a member looking to register for an RFID card?  If so, you'll want to follow the <%= link_to "Sign Up", new_member_registration_path %>
-    link.  As long as the email address that you use to register is the one that you've used in your paypal transaction, you will not have to find
-    a member of the hive board to approve your membership.
-  </div>
-  <div class="span6">
-    <h2>Guests</h2>
-    <p>Are you a guest looking to join the Hive, or just visiting us for a meeting?</p>
-    <ul>
-      <li><%= link_to "Visiting hive13 for a meeting or a class", new_guest_path %></li>
-      <li>I'm looking to join hive13</li>
-      <li>I'm making a donation of goods to the Hive</li>
-    </ul>
 
-  </div>
-</div>
+<% else %>
+    <div class="hero-unit">
+    <h1>Welcome to Hive13!</h1>
+    <p>  Hive13 aims to create a place where a diverse community of makers can collaborate and pursue creative projects.
+    Hive13 promotes science & technology education, open source values, and skill sharing amongst it’s members and the community.</p>
+    </div>
+
+
+    <div class="row">
+      <div class="span6">
+        <h2>Existing Members</h2>
+        Are you a member looking to register for an RFID card?  If so, you'll want to follow the <%= link_to "Sign Up", new_member_registration_path %>
+        link.  As long as the email address that you use to register is the one that you've used in your paypal transaction, you will not have to find
+        a member of the hive board to approve your membership.
+      </div>
+      <div class="span6">
+        <h2>Guests</h2>
+        <p>Are you a guest looking to join the Hive, or just visiting us for a meeting?</p>
+        <ul>
+          <li><%= link_to "Visiting hive13 for a meeting or a class", new_guest_path %></li>
+          <li>I'm looking to join hive13</li>
+          <li>I'm making a donation of goods to the Hive</li>
+        </ul>
+      </div>
+    </div>
+<% end %>
