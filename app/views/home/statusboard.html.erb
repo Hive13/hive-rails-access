@@ -24,7 +24,7 @@
          <td><%= member.fname %> <%= member.lname %></td>
        <% end %>
        <% if member.last_access %>
-         <% if member.last_access >= 1.hour.ago %>
+         <% if member.last_access >= 2.hour.ago %>
            <td>In</td>
            <td><%= time_ago_in_words(member.last_access) %></td>
          <% else %>
@@ -33,7 +33,7 @@
          <% end %>
        <% else %>
          <td>Out</td>
-         <td>Unknown last checkin</td>
+         <td>Last Check-in Time Unknown</td>
        <% end %>
       </tr>
     <% end %>
@@ -49,11 +49,11 @@
       </tr>
     <% @guests.each do |guest| %>
           <tr>
-          <% if guest.handle %>
-            <td><%= guest.handle %></td>
-          <% else %>
-            <td><%= guest.fname %> <%= guest.lname %></td>
-          <% end %>
+            <td><%= guest.fname %> <%= guest.lname %>
+                <% if guest.handle %>
+                       (<%= guest.handle %>)
+                <% end %>
+            </td>
             <% if guest.date_out.nil? %>
               <td>In</td>
               <td><%= time_ago_in_words(guest.date_in) %></td>

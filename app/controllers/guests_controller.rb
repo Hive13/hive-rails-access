@@ -51,7 +51,7 @@ class GuestsController < ApplicationController
       if @guest.save
         BadgeprinterWorker.perform_async(@guest.id)
 
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
+        format.html { redirect_to '/guests/new', notice: 'Thanks for signing in!  Your badge should print shortly!' }
         format.json { render json: @guest, status: :created, location: @guest }
       else
         format.html { render action: "new" }
