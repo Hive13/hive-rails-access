@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717020052) do
+ActiveRecord::Schema.define(:version => 20130719235341) do
 
   create_table "guests", :force => true do |t|
     t.string   "fname"
@@ -57,21 +57,22 @@ ActiveRecord::Schema.define(:version => 20130717020052) do
     t.string   "authentication_token"
     t.string   "handle"
     t.datetime "last_access"
-    t.boolean  "vend_enabled"
-    t.integer  "vend_credits"
-    t.integer  "vend_total"
     t.string   "yubico"
     t.boolean  "is_admin"
     t.boolean  "is_lockedout"
     t.boolean  "is_private"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.boolean  "vend_enabled"
+    t.integer  "vend_credits"
+    t.integer  "vend_total"
     t.string   "checkin_picture_file_name"
     t.string   "checkin_picture_content_type"
     t.integer  "checkin_picture_file_size"
     t.datetime "checkin_picture_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "door_count"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
