@@ -1,4 +1,9 @@
 <div class="row">
+    <div class="span12">
+        <h1>Current Members and Guests at the Hive</h1>
+    </div>
+</div>
+<div class="row">
   <div class="span6">
     <h2>Members</h2>
     <table class="table-striped">
@@ -9,8 +14,12 @@
       </tr>
     <% @members.each do |member| %>
        <tr>
-       <% if member.handle %>
-         <td><%= member.handle %></td>
+           <% if member.handle %>
+               <% if member.handle.empty? %>
+                   <td><%= member.fname %> <%=member.lname%></td>
+               <% else %>
+                   <td><%= member.handle %> </td>
+               <% end %>
        <% else %>
          <td><%= member.fname %> <%= member.lname %></td>
        <% end %>
