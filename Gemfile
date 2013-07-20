@@ -45,6 +45,10 @@ gem 'slim'
 gem 'paperclip'
 gem 'stripe'
 
+# Prawn can be used to print out the pdfs needed for the registration process
+gem 'prawn'
+
+
 
 # 4Sq location: 4b5140ecf964a520d54827e3
 # my oAuth: DDH13XYGJ15JJBU34FPDXSJBQ2X0IVMDRBGSZQD1APQ02GCB
