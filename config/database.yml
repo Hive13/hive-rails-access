@@ -20,6 +20,8 @@ test:
 
 production:
   adapter: postgresql
-  database: my_datbase_production
+  database: door
+  username: door
+  password: door1234
   pool: 5
   timeout: 5000
