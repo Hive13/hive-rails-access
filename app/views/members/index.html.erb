@@ -8,7 +8,7 @@
     <th>Handle</th>
     <th>Email</th>
     <th>Phone</th>
-    <th>Card SN</th>
+    <th>Card</th>
     <th>4sq</th>
     <th>FB</th>
     <th>TW</th>
@@ -31,7 +31,7 @@
     <td><%= member.fname %></td>
     <td><%= member.lname %></td>
     <td><%= member.handle %></td>
-    <td><%= member.email %></td>
+    <td><%= truncate(member.email, length: 20) %></td>
     <td><%= member.phone %></td>
     <td><%= member.accesscard %></td>
     <% if member.fsqtoken.nil? %>

@@ -10,6 +10,7 @@ Hive13RailsAccess::Application.routes.draw do
   devise_for :members
 
   resources :members
+  resources :charges
   get 'members/checkin/:id', to: 'members#checkin'
 
   get "home/index"

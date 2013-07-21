@@ -18,6 +18,12 @@ class GuestsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guest }
+      format.pdf do
+        pdf = GuestwaiverPdf.new(@guest)
+        send_data pdf.render filename: "waiver_{@guest.id}",
+                            type: "application/pdf",
+                            disposition: "inline"
+      end
     end
   end
 
@@ -51,7 +57,7 @@ class GuestsController < ApplicationController
       if @guest.save
         BadgeprinterWorker.perform_async(@guest.id)
 
-        format.html { redirect_to '/guests/new', notice: 'Thanks for signing in!  Your badge should print shortly!' }
+        format.html { redirect_to '/guests/new', notice: 'Thanks for signing in!  Your badge and liability waiver should print shortly!' }
         format.json { render json: @guest, status: :created, location: @guest }
       else
         format.html { render action: "new" }

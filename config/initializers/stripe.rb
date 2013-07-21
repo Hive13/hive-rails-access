@@ -1,2 +1,7 @@
-Stripe.api_key = "tGaNWsIG3Qy6zvXB8wv4rEcizJpSXjF4"
-STRIPE_PUBLIC_KEY = "pk_KcSyS2qPWdT5SdrwkQg0vNSyhZgqP"
+Stripe.api_key = "87BXBVGKx1Ov0y3hSHzgmxjhpcocAqPl"
+STRIPE_PUBLIC_KEY = "pk_OClK9sVkWme3lRSGIQgbpT70r4jXs"
+
+Rails.configuration.stripe = {
+  :publishable_key => STRIPE_PUBLIC_KEY,
+  :secret_key => Stripe.api_key
+}
