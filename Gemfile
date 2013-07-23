@@ -44,6 +44,8 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'paperclip'
 gem 'stripe'
+gem 'barby'
+gem 'chunky_png'
 
 # Prawn can be used to print out the pdfs needed for the registration process
 gem 'prawn'

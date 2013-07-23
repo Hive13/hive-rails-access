@@ -42,6 +42,7 @@ GEM
       rake
     archive-tar-minitar (0.5.2)
     arel (3.0.2)
+    barby (0.5.1)
     bcrypt-ruby (3.1.1)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
@@ -49,6 +50,7 @@ GEM
     cancan (1.6.10)
     celluloid (0.14.1)
       timers (>= 1.0.0)
+    chunky_png (1.2.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -245,8 +247,10 @@ PLATFORMS
 DEPENDENCIES
   amqp
   annotate (= 2.5.0)
+  barby
   bootstrap-sass
   cancan
+  chunky_png
   coffee-rails (~> 3.2.1)
   devise
   foreman

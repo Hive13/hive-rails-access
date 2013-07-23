@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720003745) do
+ActiveRecord::Schema.define(:version => 20130723215727) do
 
   create_table "guests", :force => true do |t|
     t.string   "fname"
@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(:version => 20130720003745) do
     t.datetime "date_in"
     t.datetime "date_out"
     t.boolean  "badgeprinted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "handle"
+    t.string   "strHash",      :limit => nil
   end
 
   create_table "members", :force => true do |t|
