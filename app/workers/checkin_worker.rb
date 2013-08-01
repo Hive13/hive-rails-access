@@ -14,7 +14,12 @@ class CheckinWorker
     member.last_access = Time.now
 
     #Grab a copy of their picture as they walk into the hive
-    member.picture_from_url 'http://shell.hive13.org/webcam1/fullsize.jpg'
+    if Rails.env.development?
+      member.picture_from_url 'http://shell.hive13.org/webcam1/fullsize.jpg'
+    else
+      member.picture_from_url 'http://172.16.3.252/fullsize.jpg'
+    end
+
 
     # Changed last timestamp to now...
     member.save

@@ -42,7 +42,8 @@ gem 'rake'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
-gem 'paperclip'
+gem 'paperclip' # hopefully I can get rid of this with CarrierWave...
+gem 'carrierwave'
 gem 'stripe'
 gem 'barby'
 gem 'chunky_png'

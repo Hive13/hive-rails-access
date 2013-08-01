@@ -10,15 +10,14 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :is_lockedout, :is_admin, :is_private, :yubico
-  attr_accessible :accesscard, :email, :fbtoken, :fname, :fsqtoken, :lname, :phone, :twitoken, :handle, :last_access
-
-  attr_accessible :avatar, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  attr_accessible :accesscard, :email, :fbtoken, :fname, :fsqtoken, :lname, :phone, :twitoken, :handle, :last_access, :image
+  
+  mount_uploader :image, DoorimageUploader
 
   has_many :roles
 
   def picture_from_url(url)
-      self.avatar= open(url)
+      self.remote_image_url = url
   end
 
   def has_role? r
