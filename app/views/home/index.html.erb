@@ -14,6 +14,12 @@
           <li>I'm looking to add a twitter token to my account.</li>
           <li>I'm looking to donate some money for beer supplies.</li>
           <li>I'm looking to buy some soda.</li>
+          <% if current_member.authy_enabled? %>
+              <li> Two Factor Authentication Enabled with Authy!</li>
+          <% else %>
+              <li><%= link_to "I'm looking to add two-factor authentication to my account", member_enable_authy_path %></li>
+          <% end %>
+
         </ul>
       </div>
     </div>
