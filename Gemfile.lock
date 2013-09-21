@@ -48,6 +48,7 @@ GEM
       json (>= 1.7)
     celluloid (0.14.1)
       timers (>= 1.0.0)
+    chronic (0.9.1)
     chunky_png (1.2.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -241,6 +242,9 @@ GEM
       ffi (>= 0.6.3)
     warden (1.2.3)
       rack (>= 1.0)
+    whenever (0.8.4)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -276,3 +280,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   vagrant
+  whenever

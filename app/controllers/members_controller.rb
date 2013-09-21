@@ -121,6 +121,15 @@ class MembersController < ApplicationController
   # PUT /members/1.json
   def update
     @member = Member.find(params[:id])
+
+    if @member.vend_total.nil?
+      @member.vend_total = 0
+    end
+
+    if @member.vend_credits.nil?
+      @member.vend_credits = 1
+    end
+
     raise CanCan::AccessDenied if cannot? :edit, @member
 
     respond_to do |format|

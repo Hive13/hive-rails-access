@@ -47,6 +47,7 @@ gem 'carrierwave'
 gem 'stripe'
 gem 'barby'
 gem 'chunky_png'
+gem 'whenever', require: false
 
 # Prawn can be used to print out the pdfs needed for the registration process
 gem 'prawn'
