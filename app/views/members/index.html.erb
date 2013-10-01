@@ -23,11 +23,18 @@
 <% @members.each do |member| %>
   <% next if cannot? :show, member %>
   <tr>
-    <% if member.vend_enabled == true %>
-      <td><span class="label label-info">Vend</span></td>
-    <% else %>
-      <td></td>
-    <% end %>
+      <!-- Let's put the badges here... -->
+      <td>
+        <% if member.vend_enabled == true %>
+            <span class="label label-success">Vend</span>
+        <% end %>
+        <% if member.is_admin == true %>
+            <span class="label label-warning">Admin</span>
+        <% end %>
+        <% if member.is_lockedout == true %>
+            <span class="label label-important">LockedOut</span>
+        <% end %>
+      </td>
     <td><%= member.fname %></td>
     <td><%= member.lname %></td>
     <td><%= member.handle %></td>

@@ -20,7 +20,6 @@ class CheckinWorker
       member.picture_from_url 'http://172.16.3.243/fullsize.jpg'
     end
 
-
     # Changed last timestamp to now...
     member.save
   end
