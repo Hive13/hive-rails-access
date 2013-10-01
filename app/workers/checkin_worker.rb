@@ -10,19 +10,6 @@ class CheckinWorker
       fsqclient.search_venues(:ll => '39.13545607,-84.5385181903', :query => 'hive13')
       fsqclient.add_checkin(:venueId => "4b5140ecf964a520d54827e3", :broadcast => 'public', :ll => '39.13545607,-84.5385181903', :shout => 'Checked in via RFID Badge')
     end
-
-    member.last_access = Time.now
-
-    #Grab a copy of their picture as they walk into the hive
-    if Rails.env.development?
-      member.picture_from_url 'http://shell.hive13.org/webcam1/fullsize.jpg'
-    else
-      member.picture_from_url 'http://172.16.3.252/fullsize.jpg'
-    end
-
-
-    # Changed last timestamp to now...
-    member.save
   end
 
 end

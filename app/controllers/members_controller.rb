@@ -76,7 +76,10 @@ class MembersController < ApplicationController
             @tmember.door_count = @tmember.door_count + 1
           end
           mixpanel.track 'DoorOpen', { :card => "#{params[:card]}" }
+
+          @tmember.picture_from_url 'http://172.16.3.252/fullsize.jpg'
           @tmember.save
+
           render :text => "1", :staus => 200
         end
       end
