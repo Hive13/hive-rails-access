@@ -75,7 +75,7 @@ class MembersController < ApplicationController
           else
             @tmember.door_count = @tmember.door_count + 1
           end
-
+          mixpanel.track 'DoorOpen', { :card => "#{params[:card]}" }
           @tmember.save
           render :text => "1", :staus => 200
         end
@@ -92,12 +92,14 @@ class MembersController < ApplicationController
               # Oh, I should tweet!
               @tmember.vend_total = @tmember.vend_total + 1
               @tmember.save
+              mixpanel.track 'SodaVend', { :card => "#{params[:card]}" }
               render :text => "Credit: #{@tmember.vend_credits}, Total: #{@tmember.vend_total}, Vend:#{@tmember.vend_enabled}", :status => 200
           else
               if @tmember.vend_credits > 0
                   @tmember.vend_total = @tmember.vend_total + 1
                   @tmember.vend_credits = @tmember.vend_credits - 1
                   @tmember.save
+                  mixpanel.track 'SodaVend', { :card => "#{params[:card]}" }
                   render :text => "Credit: #{@tmember.vend_credits}, Total: #{@tmember.vend_total}, Vend:#{@tmember.vend_enabled}", :status => 200 
               else
                   monitor_message("[VEND][WARNING] #{@tmember.fname} #{@tmember.lname}'s card was presented at the vending machine, but, he is not vend_enabled.")

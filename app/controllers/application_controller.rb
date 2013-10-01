@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     current_member
   end
 
+  def mixpanel
+    @mixpanel ||= Mixpanel::Tracker.new "4b80cdbe143b4df58aaaf487a88a0b46", { :env => request.env }
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
