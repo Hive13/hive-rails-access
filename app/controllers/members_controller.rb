@@ -75,9 +75,12 @@ class MembersController < ApplicationController
           else
             @tmember.door_count = @tmember.door_count + 1
           end
-          mixpanel.track 'DoorOpen', { :card => "#{params[:card]}" }
 
-          @tmember.picture_from_url 'http://172.16.3.252/fullsize.jpg'
+          if @tmember.is_admin != true
+            mixpanel.track 'DoorOpen', { :card => "#{params[:card]}" }
+          end
+
+          @tmember.picture_from_url 'http://172.16.3.243/fullsize.jpg'
           @tmember.save
 
           render :text => "1", :staus => 200
@@ -95,7 +98,9 @@ class MembersController < ApplicationController
               # Oh, I should tweet!
               @tmember.vend_total = @tmember.vend_total + 1
               @tmember.save
-              mixpanel.track 'SodaVend', { :card => "#{params[:card]}" }
+              if @tmember.is_admin != true
+                mixpanel.track 'SodaVend', { :card => "#{params[:card]}" }
+              end
               render :text => "Credit: #{@tmember.vend_credits}, Total: #{@tmember.vend_total}, Vend:#{@tmember.vend_enabled}", :status => 200
           else
               if @tmember.vend_credits > 0
