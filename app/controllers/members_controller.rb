@@ -79,10 +79,6 @@ class MembersController < ApplicationController
           if @tmember.is_admin != true
             mixpanel.track 'DoorOpen', { :card => "#{params[:card]}" }
           end
-
-          @tmember.picture_from_url 'http://172.16.3.243/fullsize.jpg'
-          @tmember.save
-
           render :text => "1", :staus => 200
         end
       end
