@@ -1,12 +1,19 @@
+<div class="hero-unit">
+  <h1>Add Soda Credits</h1>
+  <p>  If your soda card is running low on credits, you can 'top up' your card here in $10.00 increments.  We use stripe's
+  API to handle the credit card authorization stuff -- we don't keep a copy of your card data or anything on our local servers.</p>
+</div>
+
+
 <%= form_tag charges_path do %>
   <article>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount: $10.00</span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
           data-key="<%= STRIPE_PUBLIC_KEY %>"
-          data-description="A RFID Badge" 
-          data-amount="500"></script>
+          data-description="20 Soda Credits"
+          data-amount="1000"></script>
 <% end %>

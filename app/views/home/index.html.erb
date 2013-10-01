@@ -13,7 +13,7 @@
           <li>I'm looking at add a facebook token to my account.</li>
           <li>I'm looking to add a twitter token to my account.</li>
           <li>I'm looking to donate some money for beer supplies.</li>
-          <li>I'm looking to buy some soda.</li>
+          <li>You have <%= current_member.vend_credits %> vend credits left on your card.  <%= link_to "Add $10.00 to my soda account.", new_charge_path %></li>
           <% if current_member.authy_enabled? %>
               <li> Two Factor Authentication Enabled with Authy!</li>
           <% else %>

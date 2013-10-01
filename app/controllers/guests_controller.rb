@@ -72,6 +72,7 @@ class GuestsController < ApplicationController
       if @guest.save
         BadgeprinterWorker.perform_async(@guest.id)
         WaiverMailer.welcome_email(@guest).deliver
+        mixpanel.track 'NewGuest', { :time => @guest.date_in, :email => @guest.email }
 
         format.html { redirect_to '/guests/new', notice: 'Thanks for signing in!  Your badge and liability waiver should print shortly!' }
         format.json { render json: @guest, status: :created, location: @guest }
