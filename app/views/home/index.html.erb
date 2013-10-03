@@ -1,6 +1,6 @@
 <% if member_signed_in? %>
     <div class="row">
-      <div class="span8">
+      <div class="span7">
         <h2>Member Functions</h2>
         <ul>
           <li><%= link_to "I'm looking to associate an RFID card with my account.", '/home/enrollcard' %></li>
@@ -13,15 +13,24 @@
           <li>I'm looking at add a facebook token to my account.</li>
           <li>I'm looking to add a twitter token to my account.</li>
           <li>I'm looking to donate some money for beer supplies.</li>
-          <li>You have <%= current_member.vend_credits %> vend credits left on your card.  <%= link_to "Add $10.00 to my soda account.", new_charge_path %></li>
           <% if current_member.authy_enabled? %>
               <li> Two Factor Authentication Enabled with Authy!</li>
           <% else %>
               <li><%= link_to "I'm looking to add two-factor authentication to my account", member_enable_authy_path %></li>
           <% end %>
-
         </ul>
       </div>
+      <div class="span5">
+      	<h2>At a glance...</h2>
+      	<ul class="thumbnails">
+  		<li class="span3">
+    		<div class="thumbnail">
+     	 		<h3><%= current_member.vend_credits %> Soda Credits</h3>
+  				<%= link_to "Add 20 ($10.00)", new_charge_path, :class => "btn" %>
+	    	</div>
+  		</li>
+  		</ul>
+      </div>	
     </div>
 
 
@@ -29,7 +38,7 @@
     <div class="hero-unit">
     <h1>Welcome to Hive13!</h1>
     <p>  Hive13 aims to create a place where a diverse community of makers can collaborate and pursue creative projects.
-    Hive13 promotes science & technology education, open source values, and skill sharing amongst it’s members and the community.</p>
+    Hive13 promotes science and technology education, open source values, and skill sharing amongst it’s members and the community.</p>
     </div>
 
 

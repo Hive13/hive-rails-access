@@ -6,6 +6,9 @@ class BadgeprinterWorker
 
   def perform(memberId)
     # Logic to print the badge goes here.
+    pdf = Prawn::Document.new
+    pdf.text "Welcome to Hive13!"
+    file = pdf.render_file
 
   end
 end

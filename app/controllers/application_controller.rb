@@ -13,7 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def mixpanel
-    @mixpanel ||= Mixpanel::Tracker.new "4b80cdbe143b4df58aaaf487a88a0b46", { :env => request.env }
+    
+    if Rails.env.development?
+      # 23ec112b4f9e9591c90957940c71f111
+      @mixpanel ||= Mixpanel::Tracker.new "23ec112b4f9e9591c90957940c71f111", { :env => request.env }
+    else
+      @mixpanel ||= Mixpanel::Tracker.new "4b80cdbe143b4df58aaaf487a88a0b46", { :env => request.env }
+    end
   end
 
   rescue_from CanCan::AccessDenied do |exception|
