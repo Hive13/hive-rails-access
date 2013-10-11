@@ -18,6 +18,9 @@
           <% else %>
               <li><%= link_to "I'm looking to add two-factor authentication to my account", member_enable_authy_path %></li>
           <% end %>
+          <% if current_member.is_admin? %>
+          <li><%= link_to "Member Admin", members_path %> </li>
+          <% end %>
         </ul>
       </div>
       <div class="span5">
@@ -27,6 +30,7 @@
     		<div class="thumbnail">
      	 		<h3><%= current_member.vend_credits %> Soda Credits</h3>
   				<%= link_to "Add 20 ($10.00)", new_charge_path, :class => "btn" %>
+  				<a class="coinbase-button" data-code="b4b92e37428027446557c652732c96a8" data-custom="SODA_" href="https://coinbase.com/checkouts/b4b92e37428027446557c652732c96a8">Pay With Bitcoin</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
 	    	</div>
   		</li>
   		</ul>

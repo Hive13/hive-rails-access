@@ -13,7 +13,9 @@ Hive13RailsAccess::Application.routes.draw do
     :verify_authy_installation => "/verify-installation"
   }
 
-  resources :members
+  resources :members 
+  match "members/:id/lockouttoggle" => "members#lockout", :as => "lockout_member"
+  
   resources :charges
   get 'members/checkin/:id', to: 'members#checkin'
 

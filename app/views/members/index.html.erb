@@ -61,9 +61,28 @@
     <td><%= member.door_count %></td>
     <td><%= link_to 'Show', member if can? :show, member %></td>
     <td><%= link_to 'Edit', edit_member_path(member) if can? :edit, member%></td>
+	<td><%= link_to 'Lockout', lockout_member_path(member) %></td>
     <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, member %></td>
   </tr>
 <% end %>
+<tr>
+	<td></td>
+	<td>Totals</td>
+	<td></td>
+	<td></td>	
+	<td></td>
+		<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><%= @vendCredits %></td>
+	<td><%= @vendTotal %></td>
+	<td><%= @doorOpens %></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 </table>
 
 <br />

@@ -3,6 +3,10 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    
+    @vendCredits = Member.sum('vend_credits')
+    @vendTotal = Member.sum('vend_total')
+    @doorOpens = Member.sum('door_count')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -161,4 +165,15 @@ class MembersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def lockout
+    @member = Member.find(params[:id])
+    @member.toggle(:is_lockedout)
+    @member.save    
+    redirect_to members_url
+    
+  end
+  
+  
+  
 end
