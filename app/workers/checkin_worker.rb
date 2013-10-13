@@ -1,7 +1,7 @@
 class CheckinWorker
   include Sidekiq::Worker
   sidekiq_options queue: "high"
-  # sidekiq_options retry: false
+  sidekiq_options retry: false
 
   def perform(memberId)
     member = Member.find(memberId)
