@@ -35,5 +35,5 @@ class HomeController < ApplicationController
     @members = Member.all
     @guests = Guest.all
   end
-  
+
 end

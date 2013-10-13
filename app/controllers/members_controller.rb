@@ -171,7 +171,13 @@ class MembersController < ApplicationController
     @member.toggle(:is_lockedout)
     @member.save    
     redirect_to members_url
-    
+  end
+
+  def setprivacy
+    @member = Member.find(params[:id])
+    @member.toggle(:is_private)
+    @member.save
+    redirect_to root_url
   end
   
   

@@ -32,6 +32,9 @@ class ChargesController < ApplicationController
       um.save
     end
 
+    ReceiptMailer.receipt_email(current_member.id).deliver
+
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
