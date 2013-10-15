@@ -34,8 +34,6 @@ GEM
       rake
     archive-tar-minitar (0.5.2)
     arel (3.0.2)
-    authy (2.2.0)
-      httpclient (>= 2.2.6)
     barby (0.5.1)
     bcrypt-ruby (3.1.1)
     bootstrap-sass (2.3.2.0)
@@ -67,9 +65,6 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
-    devise-authy (1.2.1)
-      authy
-      devise
     dotenv (0.8.0)
     erubis (2.7.0)
     escape (0.0.4)
@@ -94,7 +89,6 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
-    httpclient (2.3.4.1)
     i18n (0.6.4)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -263,7 +257,6 @@ DEPENDENCIES
   chunky_png
   coffee-rails (~> 3.2.1)
   devise
-  devise-authy
   foreman
   foursquare2
   jquery-rails
