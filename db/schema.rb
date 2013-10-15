@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131001201501) do
+ActiveRecord::Schema.define(:version => 20131013190625) do
 
   create_table "guests", :force => true do |t|
     t.string   "fname"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20131001201501) do
     t.datetime "last_sign_in_with_authy"
     t.boolean  "authy_enabled",           :default => false
     t.string   "stripeToken"
+    t.integer  "MemberType"
   end
 
   add_index "members", ["authy_id"], :name => "index_members_on_authy_id"

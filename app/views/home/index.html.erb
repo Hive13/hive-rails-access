@@ -4,7 +4,11 @@
         <h2>Member Functions</h2>
         <ul>
           <li><%= link_to "I'm looking to associate an RFID card with my account.", '/home/enrollcard' %></li>
-          <li>I'm looking to change my privacy status.</li>
+            <% if current_member.is_private?  %>
+              <li><%= link_to "I'm looking to make my hive actions private on social media.", privacy_member_path(current_member) %></li>
+            <% else %>
+              <li><%= link_to "I'm looking to make my hive actions public on social media.", privacy_member_path(current_member) %></li>
+            <% end %>
           	<% if current_member.fsqtoken.blank? %>
               <li><%= link_to "I'm looking to add a foursquare token to my account.", '/auth/foursquare' %></li>
               <% else %>

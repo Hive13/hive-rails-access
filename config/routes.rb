@@ -15,6 +15,7 @@ Hive13RailsAccess::Application.routes.draw do
 
   resources :members 
   match "members/:id/lockouttoggle" => "members#lockout", :as => "lockout_member"
+  match "members/:id/privacytoggle" => "members#setprivacy", :as => "privacy_member"
   
   resources :charges
   get 'members/checkin/:id', to: 'members#checkin'

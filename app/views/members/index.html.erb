@@ -8,6 +8,7 @@
     <th>Handle</th>
     <th>Email</th>
     <th>Phone</th>
+    <th>Type</th>
     <th>Card</th>
     <th>4sq</th>
     <th>FB</th>
@@ -41,6 +42,17 @@
     <td><%= member.handle %></td>
     <td><%= truncate(member.email, length: 20) %></td>
     <td><%= member.phone %></td>
+    <% if member.MemberType == 1 %>
+        <td>Officer</td>
+    <% elsif member.MemberType == 2 %>
+        <td>Full</td>
+    <% elsif member.MemberType == 3 %>
+        <td>Student</td>
+    <% elsif member.MemberType == 4 %>
+        <td>Lite</td>
+    <% else %>
+        <td> <%= member.MemberType %></td>
+    <% end  %>
     <td><%= member.accesscard %></td>
     <% if member.fsqtoken.nil? %>
       <td>No</td>
