@@ -2,7 +2,7 @@
 
 <table class="table-striped">
   <tr>
-    <th></th>
+    <th>Flags</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Handle</th>
@@ -12,9 +12,10 @@
     <th>4sq</th>
     <th>FB</th>
     <th>TW</th>
-    <th>V Credits</th>
-    <th>V Total</th>
-    <th>D</th>
+    <th>VC</th>
+    <th>VT</th>
+    <th>DR</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,13 +27,13 @@
       <!-- Let's put the badges here... -->
       <td>
         <% if member.vend_enabled == true %>
-            <span class="label label-success">Vend</span>
+            <span class="label label-success">V</span>
         <% end %>
         <% if member.is_admin == true %>
-            <span class="label label-warning">Admin</span>
+            <span class="label label-warning">A</span>
         <% end %>
         <% if member.is_lockedout == true %>
-            <span class="label label-important">LockedOut</span>
+            <span class="label label-important">LO</span>
         <% end %>
       </td>
     <td><%= member.fname %></td>
@@ -82,6 +83,8 @@
 	<td></td>
 	<td></td>
 	<td></td>
+	<td></td>
+
 </tr>
 </table>
 
