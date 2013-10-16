@@ -7,6 +7,7 @@ class MembersController < ApplicationController
     @vendCredits = Member.sum('vend_credits')
     @vendTotal = Member.sum('vend_total')
     @doorOpens = Member.sum('door_count')
+    @memberCount = Member.count
 
     respond_to do |format|
       format.html # index.html.erb
