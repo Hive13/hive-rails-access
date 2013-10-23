@@ -1,7 +1,16 @@
 <p>Welcome to hive13, <%= @email %>!</p>
 
+<p>While I'd like for you to confirm your account, if you're outside of the space
+    you won't have access to the webserver that handles this.  Just try to remember
+    to do so the next time you are at the space.
+</p>
+
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
 
-<p>If you have any issues with access, please email rt@hive13.org, or speak to one of the folks who is managing the RFID system.</p>
+<p>You can add funds to your Hive13 account, turn off and on your card, and associate
+    your social media accounts via this web interface.  
+</p>
+
+<p>If you have any issues with access, please email hive13help@gmail.com, or speak to one of the folks who is managing the RFID system.</p>
