@@ -140,6 +140,11 @@ class MembersController < ApplicationController
     if @member.vend_credits.nil?
       @member.vend_credits = 1
     end
+    
+    if @member.door_count.nil?
+        @member.door_count = 0
+    end
+    
 
     raise CanCan::AccessDenied if cannot? :edit, @member
 

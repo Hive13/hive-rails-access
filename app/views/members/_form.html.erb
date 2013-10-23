@@ -10,43 +10,82 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :fname %><br />
-    <%= f.text_field :fname %>
-  </div>
-  <div class="field">
-    <%= f.label :lname %><br />
-    <%= f.text_field :lname %>
-</div>
-<div class="field">
-    <%= f.label :handle %><br />
-    <%= f.text_field :handle %>
+    <div class="row">
+        <div class="field">
+            <div class="span2">
+                <label class="control-label" for="fname">
+                    <%= f.label :fname %>
+                </label>
+            </div>
+            <div class="span3">
+                <%= f.text_field :fname %>
+            </div>
+        </div>
     </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :accesscard %><br />
-    <%= f.text_field :accesscard %>
-  </div>
-  <div class="field">
-    <%= f.label :fsqtoken %><br />
-    <%= f.text_field :fsqtoken %>
-  </div>
-  <div class="field">
-    <%= f.label :fbtoken %><br />
-    <%= f.text_field :fbtoken %>
-  </div>
-  <div class="field">
-    <%= f.label :twitoken %><br />
-    <%= f.text_field :twitoken %>
-  </div>
+
+    <div class="row">
+        <div class="field">
+            <div class="span2">
+                <label class="control-label" for="lname">
+                    <%= f.label :lname %>
+                </label>
+            </div>
+            <div class="span3">
+                <%= f.text_field :lname %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="field">
+            <div class="span2">
+                <label class="control-label" for="handel">
+                    <%= f.label :handel %>
+                </label>
+            </div>
+            <div class="span3">
+                <%= f.text_field :handel %>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="field">
+            <div class="span2">
+                <label class="control-label" for="email">
+                    <%= f.label :email %>
+                </label>
+            </div>
+            <div class="span3">
+                <%= f.text_field :email %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="field">
+            <div class="span2">
+                <label class="control-label" for="phone">
+                    <%= f.label :phone %>
+                </label>
+            </div>
+            <div class="span3">
+                <%= f.text_field :phone %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="field">
+            <div class="span2">
+                <label class="control-label" for="accesscard">
+                    <%= f.label :accesscard %>
+                </label>
+            </div>
+            <div class="span3">
+                <%= f.text_field :accesscard %>
+            </div>
+        </div>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
