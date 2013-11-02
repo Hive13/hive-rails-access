@@ -39,12 +39,12 @@
     <div class="row">
         <div class="field">
             <div class="span2">
-                <label class="control-label" for="handel">
-                    <%= f.label :handel %>
+                <label class="control-label" for="handle">
+                    <%= f.label :handle %>
                 </label>
             </div>
             <div class="span3">
-                <%= f.text_field :handel %>
+                <%= f.text_field :handle %>
             </div>
         </div>
     </div>
@@ -73,7 +73,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="field">
             <div class="span2">
@@ -86,7 +85,45 @@
             </div>
         </div>
     </div>
-  <div class="actions">
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="MemberType">
+            <%= f.label :MemberType %>
+          </label>
+        </div>
+        <div class="span3">
+          <%= f.select(:MemberType, options_for_select([['Officer', 1], ['Full', 2], ['Student',3], ['Elite',4]])) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="LiabilityWaiver">
+            Liability Waiver
+          </label>
+        </div>
+        <div class="span3">
+          <%= f.file_field :waiver %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <div class="span2">
+          <label class="control-label" for="LiabilityWaiver">
+            Membership Application
+          </label>
+        </div>
+        <div class="span3">
+          <%= f.file_field :hiveapp %>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

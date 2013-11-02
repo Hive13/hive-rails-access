@@ -10,8 +10,10 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :authy_id, :last_sign_in_with_authy, :email, :password, :password_confirmation, :remember_me, :is_lockedout, :is_admin, :is_private, :yubico
-  attr_accessible :authy_id, :last_sign_in_with_authy, :accesscard, :email, :fbtoken, :fname, :fsqtoken, :lname, :phone, :twitoken, :handle, :last_access, :image
+  attr_accessible :accesscard, :email, :fbtoken, :fname, :fsqtoken, :lname, :phone, :twitoken, :handle, :last_access, :image, :MemberType
 
+  mount_uploader :waiver, WaiverUploader
+  mount_uploader :hiveapp, HiveappUploader
 
   mount_uploader :image, DoorimageUploader
 
