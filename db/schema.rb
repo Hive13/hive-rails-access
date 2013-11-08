@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131013190625) do
+ActiveRecord::Schema.define(:version => 20131107235944) do
 
   create_table "guests", :force => true do |t|
     t.string   "fname"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(:version => 20131013190625) do
     t.boolean  "authy_enabled",           :default => false
     t.string   "stripeToken"
     t.integer  "MemberType"
+    t.string   "waiver"
+    t.string   "hiveapp"
   end
 
   add_index "members", ["authy_id"], :name => "index_members_on_authy_id"
