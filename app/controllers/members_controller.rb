@@ -85,6 +85,8 @@ class MembersController < ApplicationController
             mixpanel.track 'DoorOpen', { :card => "#{params[:card]}" }
           end
           render :text => "1", :staus => 200
+          @tmember.save
+
         end
       end
   end

@@ -41,8 +41,8 @@
       </td>
     <td><%= member.fname %></td>
     <td><%= member.lname %></td>
-    <td></td>
-    <td></td>
+    <td><% if member.hiveapp? %> <%= link_to 'Y', member.hiveapp_url %> <%else%> N <%end%></td>
+    <td><% if member.waiver? %> <%= link_to 'Y', member.waiver_url %> <%else%> N <%end%></td>
     <td><%= member.handle %></td>
     <td><%= truncate(member.email, length: 20) %></td>
     <td><%= member.phone %></td>
@@ -86,9 +86,11 @@
 	<td></td>
 	<td>Totals</td>
 	<td><%= @memberCount %></td>
-	<td></td>	
+    <td></td>
+    <td></td>
+    <td></td>
 	<td></td>
-		<td></td>
+	<td></td>
 	<td></td>
 	<td></td>
 	<td></td>

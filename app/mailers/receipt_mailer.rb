@@ -1,5 +1,5 @@
 class ReceiptMailer < ActionMailer::Base
-  def welcome_email(member)
+  def receipt_email(member)
     @member = Member.find(member)
 
     mail(to: @member.email,

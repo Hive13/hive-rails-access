@@ -71,6 +71,7 @@ class GuestsController < ApplicationController
     respond_to do |format|
       if @guest.save
         BadgeprinterWorker.perform_async(@guest.id)
+        WaiverprinterWorker.perform_async(@guest.id)
         WaiverMailer.welcome_email(@guest).deliver
         mixpanel.track 'NewGuest', { :time => @guest.date_in, :email => @guest.email }
 
