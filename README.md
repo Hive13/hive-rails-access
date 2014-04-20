@@ -3,7 +3,6 @@ hive-rails-access
 
 Ruby on Rails application for managing access and logging to the hive.
 
-The documentation here is a bit out of date (Ian, Sunday July 14, 2013), but, my goal is to have the requirements, development, and other secionts completed by Tuesday night.
 
 Requirements
 ------------
@@ -28,5 +27,13 @@ nginx, unicorn, rabbitmq, source code, and schemas in a ready-to-run bundle).
 3. bundle install (for local development)
 4. visit either localhost:3000 or vagrantbox:80 
 5. winning
+
+
+Starting the Server
+-------------------
+
+Sometimes when the server starts, the unicorn process hangs because postgresql 
+isn't attached.  Generally speaking, I try to start unicorn in a screen terminal
+(as root) so that it's easier to troubleshoot.
 
 
